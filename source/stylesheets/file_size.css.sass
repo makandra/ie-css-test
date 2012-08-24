@@ -1,0 +1,12 @@
+h1
+  color: red
+
+@for $i from 1 through 100
+  #some_other_selector_#{i}
+    &.with_a_really_long_name.so_we_dont_clash_with.the_selector_count
+      @for $n from 1 through 300
+        something-#{$n}: 23
+
+h1
+  color: green
+

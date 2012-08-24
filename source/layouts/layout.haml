@@ -1,0 +1,16 @@
+!!!
+- @css = Array.wrap(@css)
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    - @css.each do |filename|
+      = stylesheet_link_tag filename
+    =# yield_content :head
+  %body{:class => page_classes}
+    = yield
+    
+    - if @css.any?
+      %h2 Inspect CSS file(s):
+      %ul
+        - @css.each do |filename|
+          %li= link_to filename, "stylesheets/#{filename}.css"
